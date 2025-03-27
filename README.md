@@ -7,7 +7,7 @@
 
 ## Autor
 
-- [@estudiante](https://www.github.com/estudiante)
+- [codebell-alt](https://github.com/codebell-alt)
 
 ## Descripción del Proyecto
 
