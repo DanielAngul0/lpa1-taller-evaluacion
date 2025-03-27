@@ -1,4 +1,5 @@
-*SRS - Proyecto lpa1-taller-requerimientos*
+# *SRS - Proyecto lpa1-taller-requerimientos*
+
 # Proyecto Agencia de Viajes
 # 1. Objetivos
 El propósito de este documento es definir de manera detallada los requerimientos del sistema de reservas para una agencia de viajes.
@@ -13,9 +14,12 @@ El sistema de reservas será una aplicación web accesible desde dispositivos m�
 •	Evaluaciones y comentarios de clientes.
 •	Generación de reportes sobre ocupación y desempeño del hotel.
 # 2.2 Características del Usuario
-Clientes: Usuarios que buscan y reservan habitaciones. Pueden registrarse, realizar búsquedas, hacer reservas, pagar y dejar calificaciones y comentarios sobre sus estadías.
-Administradores de hoteles: Encargados de gestionar la información de sus hoteles, registrar nuevas habitaciones, definir precios y políticas de cancelación, así como administrar las reservas recibidas.
-Administrador del sistema: Usuario con privilegios para gestionar el correcto funcionamiento de la plataforma, administrar cuentas de hoteles, supervisar transacciones y realizar auditorías de seguridad.
+**Clientes:** Usuarios que buscan y reservan habitaciones. Pueden registrarse, realizar búsquedas, hacer reservas, pagar y dejar calificaciones y comentarios sobre sus estadías.
+
+**Administradores de hoteles:** Encargados de gestionar la información de sus hoteles, registrar nuevas habitaciones, definir precios y políticas de cancelación, así como administrar las reservas recibidas.
+
+**Administrador del sistema:** Usuario con privilegios para gestionar el correcto funcionamiento de la plataforma, administrar cuentas de hoteles, supervisar transacciones y realizar auditorías de seguridad.
+
 # 3. Requerimientos Específicos
 ## 3.1 Requerimientos Funcionales
 
