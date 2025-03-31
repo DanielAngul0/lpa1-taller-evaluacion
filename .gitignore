@@ -205,3 +205,5 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
+# Archivo temporal EXCEL
+~$*
