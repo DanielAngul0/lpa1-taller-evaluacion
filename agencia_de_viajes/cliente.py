@@ -36,7 +36,25 @@ class Cliente(Usuario):
         tabla.add_row("Dirección", self.direccion)
         return tabla
     
+    
+    # <--- *** Metodos de clase 'Cliente' *** --->
+    
     # Creara un nuevo cliente
     def registrarse(self):
         # Sera representado por su nombre y un mensaje de confirmacion usando 'rich'
         console.print(f"[bold green]Usuario {self.nombre} registrado exitosamente[/bold green]")
+        
+    def buscar_habitaciones(self):
+        # Simula la busqueda de habitaciones disponibles
+        console.print(f"[bold blue]Cliente {self.nombre} está buscando habitaciones...[/bold blue]")
+        # Retornar lista de habitaciones disponibles
+        return []
+    
+    def reservar_habitaciones(self, habitacion):
+        #Simula la reserva de una habitacion
+        console.print(f"[bold blue]Cliente {self.nombre} ha reservado la habitación: {habitacion}[/bold blue]")
+        self.reservas_realizadas.append(habitacion)
+        
+    def pagar(self, monto: float):
+        # Simula el proceso de pago para el cliente
+        console.print(f"[bold blue]Cliente {self.nombre} ha realizado un pago de ${monto:.2f}[/bold blue]")

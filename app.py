@@ -51,6 +51,22 @@ def registrar_administrador_hotel(nombre, telefono, correo, direccion, hotel):
 cliente = Cliente("Roberto", "95315225", "roB3rt0@gmail.com", "Calle 2 #58-72")
 registrar_usuario(cliente)
 
+# <--- *** Metodos de clase 'Cliente' *** --->
+
+# Simular la búsqueda de habitaciones disponibles
+habitaciones = cliente.buscar_habitaciones()
+if not habitaciones:
+    console.print("[bold yellow]No se encontraron habitaciones disponibles.[/bold yellow]")
+    
+# Simular la reserva de una habitación (puedes reemplazar "Habitación 101" por una instancia real)
+cliente.reservar_habitaciones("Habitación 101")
+    
+# Simular el proceso de pago
+cliente.pagar(120.50)
+
+console.print("=" * 50) # Separador
+
+
 # <--- *** Registro del Administrador del Sistema *** --->
 administrador_sistema = AdministradorSistema("Camilo", "521466214", "c4milo@gmail.com", "carrera 72 #8-15")
 registrar_usuario(administrador_sistema)
@@ -80,7 +96,7 @@ for info in hoteles_info:
     
     console.print(f"[bold underline]Calendario de {info['hotel'][0]}:[/bold underline]")
     calendario.gestionar_disponibilidad(2023, info["mes_visualizar"])
-    console.print("=" * 50)
+    console.print("=" * 50) # Separador
 
 
 # <--- *** Metodos de clase 'Hotel' *** --->
@@ -97,6 +113,7 @@ hotel.gestionar_ofertas()
 # Cambiar el estado del hotel y mostrar el mensaje
 hotel.cambiar_estado("Inactivo")
 
+console.print("=" * 50) # Separador
 
 # Creando una habitacion
 habitacion1 = Habitacion(
@@ -125,6 +142,8 @@ habitacion1.gestionar_precio(150.75)  # Actualiza el precio
 console.print("[bold underline]Gestión de Estado:[/bold underline]")
 habitacion1.gestionar_estado("Ocupada")  # Cambia el estado de la habitación
 
+console.print("=" * 50) # Separador
+
 
 # <--- *** Metodos de clase 'AdministradorSistema' *** --->
 
@@ -139,6 +158,8 @@ administrador_sistema.auditar_transacciones()
     
 # Metodo: Generar reportes
 administrador_sistema.generar_reportes()
+
+console.print("=" * 50) # Separador
 
 
 # <--- *** Metodos de clase 'Calificacion' *** --->
