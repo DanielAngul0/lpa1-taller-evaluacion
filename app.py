@@ -17,6 +17,8 @@ from agencia_de_viajes.habitacion import Habitacion
 from agencia_de_viajes.calificacion import Calificacion
 # Importando la clase 'SistemaPago'
 from agencia_de_viajes.sistemapago import SistemaPago
+# Importando la clase 'Pago'
+from agencia_de_viajes.pago import Pago
 
 # <--- *** Importando herramientas extras *** --->
 from rich.console import Console # Encargado de imprimir en la consola en un formato enriquecido 
@@ -203,3 +205,21 @@ if resultado:
     console.print("[bold green]El pago se procesó correctamente.[/bold green]")
 else:
     console.print("[bold red]El pago falló.[/bold red]")
+    
+console.print("=" * 50) # Separador
+
+
+# <--- *** Metodos de clase 'SistemaPago' *** --->
+
+pago = Pago(150.00, "Tarjeta de Crédito", date.today(), False, "Pendiente")
+console.print(pago)
+    
+# Procesara el pago
+if pago.procesar_pago():
+    console.print("[bold green]El pago se procesó exitosamente.[/bold green]")
+    
+console.print("=" * 50) # Separador    
+
+# Gestiona el reembolso
+pago.gestionar_reembolso()
+console.print(pago)
