@@ -13,7 +13,10 @@ console = Console()
 # Creando clase AdministradorSistema
 class AdministradorSistema(Usuario):
     # Tomando los atributos de la clase abstracta Usuario
-    def __init__(self, nombre: str, telefono: str, correo_electronico: str, direccion: str):
+    def __init__(self, nombre: str, 
+                telefono: str, 
+                correo_electronico: str, 
+                direccion: str):
         super().__init__(nombre, telefono, correo_electronico, direccion)
         # Añadiendo atributos propios de la clase AdministradorSistema
         self.auditorias_realizadas = [] # Lista para almacenar las auditorias realizadas
@@ -33,7 +36,25 @@ class AdministradorSistema(Usuario):
         tabla.add_row("Dirección", self.direccion)
         return tabla
     
+    # <--- *** Metodos de clase 'AdministradorSistema' *** --->
+    
     # Creara un nuevo administrador del sistema
     def registrarse(self):
         # Sera representado por su nombre y un mensaje de confirmacion usando 'rich'
         console.print(f"[bold green]Usuario {self.nombre} registrado exitosamente[/bold green]")
+        
+    # Simula la gestión de usuarios en la plataforma
+    def gestionar_usuarios(self):
+        console.print(f"[bold blue]Gestionando usuarios en la plataforma...[/bold blue]")
+
+    # Simula la supervisión del funcionamiento de la plataforma
+    def supervisar_plataforma(self):
+        console.print(f"[bold blue]Supervisando la plataforma en tiempo real...[/bold blue]")
+    
+    # Simula la auditoría de transacciones en el sistema   
+    def auditar_transacciones(self):
+        console.print(f"[bold blue]Auditando transacciones del sistema...[/bold blue]")
+
+    # Simula la generación de reportes del sistema
+    def generar_reportes(self):
+        console.print(f"[bold blue]Generando reportes del sistema...[/bold blue]")

@@ -122,3 +122,18 @@ habitacion1.gestionar_precio(150.75)  # Actualiza el precio
 # Metodo: Gestion de estado
 console.print("[bold underline]Gestión de Estado:[/bold underline]")
 habitacion1.gestionar_estado("Ocupada")  # Cambia el estado de la habitación
+
+
+# <--- *** Metodos de clase 'AdministradorSistema' *** --->
+
+# Metodo: Gestionar usuarios
+administrador_sistema.gestionar_usuarios()
+    
+# Metodo: Supervisar plataforma
+administrador_sistema.supervisar_plataforma()
+    
+# Metodo: Auditar transacciones
+administrador_sistema.auditar_transacciones()
+    
+# Metodo: Generar reportes
+administrador_sistema.generar_reportes()
