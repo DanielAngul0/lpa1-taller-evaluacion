@@ -1,2 +1,3 @@
-rich
-
+# Dependencias principales
+rich # Para salida de consola estilizada
+pytest # Para pruebas unitarias
