@@ -12,6 +12,8 @@ from agencia_de_viajes.hotel import Hotel
 from agencia_de_viajes.calendarioocupacion import CalendarioOcupacion
 # Importando la clase 'Habitacion' con sus atributos y metodos especificos
 from agencia_de_viajes.habitacion import Habitacion
+# Importando la clase 'Calificacion' con sus atributos y metodos especificos
+from agencia_de_viajes.calificacion import Calificacion
 from rich.console import Console # Encargado de imprimir en la consola en un formato enriquecido 
 from datetime import date # Importa la clase date del modulo datetime para manejar fechas
 
@@ -137,3 +139,26 @@ administrador_sistema.auditar_transacciones()
     
 # Metodo: Generar reportes
 administrador_sistema.generar_reportes()
+
+
+# <--- *** Metodos de clase 'Calificacion' *** --->
+
+# Creando algunas instancias de 'Calificacion'
+cal1 = Calificacion(4, "Muy buen servicio", date(2023, 4, 10))
+cal2 = Calificacion(5, "Excelente atención", date(2023, 4, 15))
+cal3 = Calificacion(3, "Servicio regular", date(2023, 4, 20))
+    
+# Mostrando cada calificacion usando usando la tabla estetica de Rich
+console.print(cal1)
+console.print(cal2)
+console.print(cal3)
+    
+# Agrupar las calificaciones en una lista
+calificaciones = [cal1, cal2, cal3]
+    
+# Calcular y mostrar el promedio para el hotel y las habitaciones
+promedio_hotel = Calificacion.calcular_promedio_hotel(calificaciones)
+promedio_habitacion = Calificacion.calcular_promedio_habitacion(calificaciones)
+    
+console.print(f"[bold green]Promedio de calificaciones del hotel: {promedio_hotel:.2f}[/bold green]")
+console.print(f"[bold green]Promedio de calificaciones de la habitación: {promedio_habitacion:.2f}[/bold green]")
