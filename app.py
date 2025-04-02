@@ -1,27 +1,34 @@
 # <--- *** Importaciones necesarias *** --->
 
+# Importando la clase 'Cliente' con sus atributos y metodos especificos
 from agencia_de_viajes.cliente import Cliente
+# Importando la clase 'AdministradorSistema' con sus atributos y metodos especificos
 from agencia_de_viajes.administradorsistema import AdministradorSistema
+# Importando la clase 'AdministradorHotel' con sus atributos y metodos especificos
 from agencia_de_viajes.administradorhotel import AdministradorHotel
+# Importando la clase 'Hotel' con sus atributos y metodos especificos
 from agencia_de_viajes.hotel import Hotel
+# Importando la clase 'CalendarioOcupacion' con sus atributos y metodos especificos
 from agencia_de_viajes.calendarioocupacion import CalendarioOcupacion
-from rich.console import Console
-from datetime import date
+# Importando la clase 'Habitacion' con sus atributos y metodos especificos
+from agencia_de_viajes.habitacion import Habitacion
+from rich.console import Console # Encargado de imprimir en la consola en un formato enriquecido 
+from datetime import date # Importa la clase date del modulo datetime para manejar fechas
 
-console = Console()  # Consola para impresión mejorada
 
+console = Console() # Crea una instancia de la consola para imprimir con colores, estilos y otros formatos mejorados
 
-# <--- *** Funciones para evitar repetición *** --->
+# <--- *** Creando objetos de cada clase *** --->
 
 def registrar_usuario(usuario):
-    """Registra e imprime los datos de un usuario (Cliente o Administrador)."""
+    # Registrara a un usuario dependiendo su rol(Cliente, Administrador)
     console.print(usuario)
     usuario.registrarse()
     print("=" * 50)
 
 
 def crear_hotel(nombre, direccion, telefono, correo, ciudad, estado, fechas_ocupadas):
-    """Crea un hotel con su respectivo calendario y lo retorna."""
+    # Creara un hotel y le asignara un calendario
     calendario = CalendarioOcupacion("Hotel", fechas_ocupadas)
     hotel = Hotel(nombre, direccion, telefono, correo, ciudad, estado)
     hotel.asignar_calendario(calendario)
@@ -30,7 +37,7 @@ def crear_hotel(nombre, direccion, telefono, correo, ciudad, estado, fechas_ocup
 
 
 def registrar_administrador_hotel(nombre, telefono, correo, direccion, hotel):
-    """Crea un administrador de hotel, lo registra y le asigna un hotel."""
+    # Creara un administrador de hotel y le asignara un hotel
     admin = AdministradorHotel(nombre, telefono, correo, direccion)
     console.print(admin)
     admin.registrarse()
@@ -76,7 +83,7 @@ for info in hoteles_info:
 
 # <--- *** Metodos de clase 'Hotel' *** --->
     
-# Visualiza el calendario asignado al hotel (por ejemplo, abril 2023)
+# Visualiza el calendario asignado al hotel
 hotel.mostrar_calendario(2023, 4) # (año, mes)
     
 # Llamar al método para gestionar servicios
@@ -87,3 +94,31 @@ hotel.gestionar_ofertas()
     
 # Cambiar el estado del hotel y mostrar el mensaje
 hotel.cambiar_estado("Inactivo")
+
+
+# Creando una habitacion
+habitacion1 = Habitacion(
+    tipo="Doble",
+    descripcion="Habitación con dos camas individuales y vista al mar.",
+    precio=120.50,
+    capacidad=2,
+    reporte_tipo="Mantenimiento",
+    reporte_contenido="Se realizó mantenimiento en el baño.",
+    reporte_fecha_generacion=date(2024, 3, 15),
+    imagenes=["static/images/hawaii.png"],
+    estado="Disponible"
+)
+
+# Mostrar la información de la habitacion
+console.print(habitacion1)
+
+
+# <--- *** Metodos de clase 'Habitacion' *** --->
+
+# Metodo: Gestion de precios
+console.print("[bold underline]Gestión de Precios:[/bold underline]")
+habitacion1.gestionar_precio(150.75)  # Actualiza el precio
+
+# Metodo: Gestion de estado
+console.print("[bold underline]Gestión de Estado:[/bold underline]")
+habitacion1.gestionar_estado("Ocupada")  # Cambia el estado de la habitación
