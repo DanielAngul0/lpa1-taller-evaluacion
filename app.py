@@ -72,3 +72,18 @@ for info in hoteles_info:
     console.print(f"[bold underline]Calendario de {info['hotel'][0]}:[/bold underline]")
     calendario.gestionar_disponibilidad(2023, info["mes_visualizar"])
     console.print("=" * 50)
+
+
+# <--- *** Metodos de clase 'Hotel' *** --->
+    
+# Visualiza el calendario asignado al hotel (por ejemplo, abril 2023)
+hotel.mostrar_calendario(2023, 4) # (año, mes)
+    
+# Llamar al método para gestionar servicios
+hotel.gestionar_servicios()
+    
+# Llamar al método para gestionar ofertas
+hotel.gestionar_ofertas()
+    
+# Cambiar el estado del hotel y mostrar el mensaje
+hotel.cambiar_estado("Inactivo")
