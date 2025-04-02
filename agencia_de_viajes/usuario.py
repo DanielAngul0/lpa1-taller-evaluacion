@@ -6,7 +6,10 @@ from abc import ABC, abstractmethod
 # Creando clase abstracta Usuario
 class Usuario(ABC):
     # Definiendo los atributos de Usuario y agregantole su respectivo tipo de dato
-    def __init__(self, nombre: str, telefono: str, correo_electronico: str, direccion: str):
+    def __init__(self, nombre: str, 
+                telefono: str, 
+                correo_electronico: str, 
+                direccion: str):
         self.nombre = nombre
         self.telefono = telefono
         self.correo_electronico = correo_electronico

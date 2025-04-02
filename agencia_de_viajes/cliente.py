@@ -13,7 +13,10 @@ console = Console()
 # Creando clase Cliente
 class Cliente(Usuario):
     # Tomando los atributos de la clase abstracta Usuario
-    def __init__(self, nombre: str, telefono: str, correo_electronico: str, direccion: str):
+    def __init__(self, nombre: str, 
+                telefono: str, 
+                correo_electronico: str, 
+                direccion: str):
         super().__init__(nombre, telefono, correo_electronico, direccion)
         # Añadiendo atributos propios de la clase Cliente
         self.reservas_realizadas = [] # Lista para almacenar reservas realizadas
