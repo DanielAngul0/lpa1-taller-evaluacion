@@ -1,55 +1,74 @@
 # <--- *** Importaciones necesarias *** --->
 
-# Importando la clase 'Cliente'
-from agencia_de_viajes.cliente import Cliente # Obtiene los atributos 
-# Importando la clase 'AdministradorSistema'
-from agencia_de_viajes.administradorsistema import AdministradorSistema # Obtiene los atributos 
-# Importando la clase 'AdministradorHotel'
-from agencia_de_viajes.administradorhotel import AdministradorHotel # Obtiene los atributos
-# Importando consola de rich para imprimir texto con formato avanzado en la terminal.
+from agencia_de_viajes.cliente import Cliente
+from agencia_de_viajes.administradorsistema import AdministradorSistema
+from agencia_de_viajes.administradorhotel import AdministradorHotel
+from agencia_de_viajes.hotel import Hotel
+from agencia_de_viajes.calendarioocupacion import CalendarioOcupacion
 from rich.console import Console
+from datetime import date
+
+console = Console()  # Consola para impresión mejorada
 
 
-console = Console() # Crea una instancia de la consola para imprimir con colores, estilos y otros formatos mejorados
+# <--- *** Funciones para evitar repetición *** --->
+
+def registrar_usuario(usuario):
+    """Registra e imprime los datos de un usuario (Cliente o Administrador)."""
+    console.print(usuario)
+    usuario.registrarse()
+    print("=" * 50)
 
 
+def crear_hotel(nombre, direccion, telefono, correo, ciudad, estado, fechas_ocupadas):
+    """Crea un hotel con su respectivo calendario y lo retorna."""
+    calendario = CalendarioOcupacion("Hotel", fechas_ocupadas)
+    hotel = Hotel(nombre, direccion, telefono, correo, ciudad, estado)
+    hotel.asignar_calendario(calendario)
+    console.print(hotel)
+    return hotel, calendario
 
-# ---> Creando objetos de cada clase <---
+
+def registrar_administrador_hotel(nombre, telefono, correo, direccion, hotel):
+    """Crea un administrador de hotel, lo registra y le asigna un hotel."""
+    admin = AdministradorHotel(nombre, telefono, correo, direccion)
+    console.print(admin)
+    admin.registrarse()
+    admin.gestionar_hotel(hotel)
+    return admin
 
 
-# <--- *** Registro de cliente *** --->
-
-# Datos representados: Nombre, Numero, Correo electronico y direccion propia de cada cliente
+# <--- *** Registro de Cliente *** --->
 cliente = Cliente("Roberto", "95315225", "roB3rt0@gmail.com", "Calle 2 #58-72")
+registrar_usuario(cliente)
 
-# ---> Imprime datos de los objetos en una tabla estetica <---
-console.print(cliente)
+# <--- *** Registro del Administrador del Sistema *** --->
+administrador_sistema = AdministradorSistema("Camilo", "521466214", "c4milo@gmail.com", "carrera 72 #8-15")
+registrar_usuario(administrador_sistema)
 
-# ---> Mensaje confirmacion del usuario registrado <---
-cliente.registrarse()
+# <--- *** Registro de Hoteles y sus Administradores *** --->
 
-print("=" * 50) # Separador para consola
+# Datos de hoteles y administradores
+hoteles_info = [
+    {
+        "hotel": ("Hotel Paraíso", "Av. Principal 123", "555-1234", "contacto@paraiso.com", "Hawaii", "Activo", 
+                [date(2023, 4, 10), date(2023, 4, 15), date(2023, 4, 20)]),
+        "admin": ("Javier", "5542153690", "Javi@gmail.com", "carrera 2 #78-56"),
+        "mes_visualizar": 4
+    },
+    {
+        "hotel": ("Hotel Estrella", "Calle Luna 456", "555-6789", "info@estrella.com", "Jamaica", "Activo", 
+                [date(2023, 5, 5), date(2023, 5, 12), date(2023, 5, 25)]),
+        "admin": ("Lucia", "300785412", "lucia_hotel@gmail.com", "Avenida 45 #12-30"),
+        "mes_visualizar": 5
+    }
+]
 
-# <--- *** Registro para administrador del sistema *** --->
-
-# Datos representados: Nombre, Numero, Correo electronico y direccion propia de cada administrador del sistema
-administradorsistema = AdministradorSistema("Camilo", "521466214", "c4milo@gmail.com", "carrera 72 #8-15")
-
-# ---> Imprime datos de los objetos en una tabla estetica <---
-console.print(administradorsistema)
-
-# ---> Mensaje confirmacion del usuario registrado <---
-administradorsistema.registrarse()
-
-print("=" * 50) # Separador para consola
-
-# <--- *** Registro para administrador del hotel *** --->
-
-# Datos representados: Nombre, Numero, Correo electronico y direccion propia de cada administrador de hotel
-administradorhotel = AdministradorHotel("Javier", "5542153690", "Javi@gmail.com", "carrera 2 #78-56")
-
-# ---> Imprime datos de los objetos en una tabla estetica <---
-console.print(administradorhotel)
-
-# ---> Mensaje confirmacion del usuario registrado <---
-administradorhotel.registrarse()
+# Registro de los hoteles y administradores
+for info in hoteles_info:
+    hotel, calendario = crear_hotel(*info["hotel"])
+    registrar_administrador_hotel(*info["admin"], hotel)
+    
+    console.print(f"[bold underline]Calendario de {info['hotel'][0]}:[/bold underline]")
+    calendario.gestionar_disponibilidad(2023, info["mes_visualizar"])
+    console.print("=" * 50)
