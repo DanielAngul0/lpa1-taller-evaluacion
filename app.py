@@ -1,24 +1,30 @@
 # <--- *** Importaciones necesarias *** --->
 
-# Importando la clase 'Cliente' con sus atributos y metodos especificos
+# <--- *** Importando las clases con sus atributos y metodos especificos *** --->
+# Importando la clase 'Cliente' 
 from agencia_de_viajes.cliente import Cliente
-# Importando la clase 'AdministradorSistema' con sus atributos y metodos especificos
+# Importando la clase 'AdministradorSistema'
 from agencia_de_viajes.administradorsistema import AdministradorSistema
-# Importando la clase 'AdministradorHotel' con sus atributos y metodos especificos
+# Importando la clase 'AdministradorHotel'
 from agencia_de_viajes.administradorhotel import AdministradorHotel
-# Importando la clase 'Hotel' con sus atributos y metodos especificos
+# Importando la clase 'Hotel'
 from agencia_de_viajes.hotel import Hotel
-# Importando la clase 'CalendarioOcupacion' con sus atributos y metodos especificos
+# Importando la clase 'CalendarioOcupacion'
 from agencia_de_viajes.calendarioocupacion import CalendarioOcupacion
-# Importando la clase 'Habitacion' con sus atributos y metodos especificos
+# Importando la clase 'Habitacion'
 from agencia_de_viajes.habitacion import Habitacion
-# Importando la clase 'Calificacion' con sus atributos y metodos especificos
+# Importando la clase 'Calificacion'
 from agencia_de_viajes.calificacion import Calificacion
+# Importando la clase 'SistemaPago'
+from agencia_de_viajes.sistemapago import SistemaPago
+
+# <--- *** Importando herramientas extras *** --->
 from rich.console import Console # Encargado de imprimir en la consola en un formato enriquecido 
 from datetime import date # Importa la clase date del modulo datetime para manejar fechas
 
 
 console = Console() # Crea una instancia de la consola para imprimir con colores, estilos y otros formatos mejorados
+
 
 # <--- *** Creando objetos de cada clase *** --->
 
@@ -183,3 +189,17 @@ promedio_habitacion = Calificacion.calcular_promedio_habitacion(calificaciones)
     
 console.print(f"[bold green]Promedio de calificaciones del hotel: {promedio_hotel:.2f}[/bold green]")
 console.print(f"[bold green]Promedio de calificaciones de la habitación: {promedio_habitacion:.2f}[/bold green]")
+
+console.print("=" * 50) # Separador
+
+
+# <--- *** Metodos de clase 'SistemaPago' *** --->
+
+sistema_pago = SistemaPago("PagoExpress", 0.05) # Se analiza el nombre del sistema de pago y el porcentaje de comision
+console.print(sistema_pago) # Mostrara una tabla estetica reflejando los atributos y datos de 'SistemaPago'
+resultado = sistema_pago.procesar_pago(100.0) # Ejecutara la funcion 'procesar_pago' en el objeto creado para calcular 'monto + (monto * comision)' e imprimirlo en resultado
+# Logica en caso de que la transaccion falle o se procese corectamente
+if resultado:
+    console.print("[bold green]El pago se procesó correctamente.[/bold green]")
+else:
+    console.print("[bold red]El pago falló.[/bold red]")
