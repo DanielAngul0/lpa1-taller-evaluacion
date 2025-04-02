@@ -10,6 +10,7 @@ from rich.table import Table # Permite crear tablas con bordes y colores
 # Instancia de consola para usar rich
 console = Console()
 
+
 # <--- *** Clase AdministradorHotel *** --->
 
 # Creando clase AdministradorHotel
@@ -23,7 +24,7 @@ class AdministradorHotel(Usuario):
         super().__init__(nombre, telefono, correo_electronico, direccion)
         # Añadiendo atributos propios de la clase AdministradorHotel
         self.hoteles_gestionados = [] # Lista para almacenar los hoteles gestionados
-        self.politicas_cancelaciones = [] # Diccionario para almacenar las políticas de cancelación
+        self.politicas_cancelaciones = {} # Diccionario para almacenar las políticas de cancelación
         
     # Funcion para crear una tabla estetica de Rich para mostrarla en consola
     def __rich__(self):
@@ -52,7 +53,7 @@ class AdministradorHotel(Usuario):
         console.print(f"[bold green]El Administrador [cyan]{self.nombre}[/cyan] ahora gestiona el hotel:[/bold green] [cyan]{hotel.nombre}[/cyan]")
     
     # Define el precio que recibira el hotel    
-    def definir_precios(self, hotel: Hotel, precio_nuevo):
+    def definir_precios(self, hotel: Hotel, precio_nuevo: float):
         # Generara un mensaje confirmando el cambio de precio del hotel
         console.print(f"[bold yellow]El Administrador [cyan]{self.nombre}[/cyan] ha cambiado el precio del hotel {hotel.nombre} a:[/bold yellow] [bold red]{precio_nuevo}[/bold red]")
     
