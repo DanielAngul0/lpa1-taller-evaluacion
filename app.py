@@ -19,6 +19,8 @@ from agencia_de_viajes.calificacion import Calificacion
 from agencia_de_viajes.sistemapago import SistemaPago
 # Importando la clase 'Pago'
 from agencia_de_viajes.pago import Pago
+# Importando la clase 'Reserva'
+from agencia_de_viajes.reserva import Reserva
 
 # <--- *** Importando herramientas extras *** --->
 from rich.console import Console # Encargado de imprimir en la consola en un formato enriquecido 
@@ -223,3 +225,22 @@ console.print("=" * 50) # Separador
 # Gestiona el reembolso
 pago.gestionar_reembolso()
 console.print(pago)
+
+console.print("=" * 50) # Separador
+
+
+# <--- *** Metodos de clase 'Reserva' *** --->
+
+# Creando una reserba con fecha de inicio y fin
+reserva = Reserva(date(2023, 5, 10), date(2023, 5, 20))
+    
+# Mostrara la informacion inicial de la reserva (estado "Pendiente" y código generado)
+console.print(reserva)
+    
+# Confirma la reserva y muestra el resultado
+reserva.confirmar_reserva()
+console.print(reserva)
+    
+# Cancela la reserva y muestra el resultado
+reserva.cancelar_reserva()
+console.print(reserva)
