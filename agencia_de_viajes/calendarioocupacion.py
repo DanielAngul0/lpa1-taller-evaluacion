@@ -52,6 +52,8 @@ class CalendarioOcupacion:
         # Mostrar todo en un Panel
         panel = Panel(calendario_text, title="Calendario de Ocupación", subtitle=self.tipo_entidad, expand=False)
         console.print(panel)
+        
+    # <--- *** Metodos de clase 'CalendarioOcupacion' *** --->
 
     def gestionar_disponibilidad(self, year: int, month: int):
         # Simula la gestión de disponibilidad mostrando el calendario para el mes y año indicados

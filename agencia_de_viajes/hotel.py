@@ -43,6 +43,9 @@ class Hotel:
         tabla.add_row("Estado", self.estado)
         return tabla
 
+
+    # <--- *** Metodos de clase 'Hotel' *** --->
+
     def asignar_calendario(self, calendario: CalendarioOcupacion):
         # Asigna el calendario de ocupación para el hotel
         if not isinstance(calendario, CalendarioOcupacion):

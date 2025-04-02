@@ -50,7 +50,7 @@ class Habitacion:
         return tabla
     
     
-    # <--- *** Metodos de Habitacion *** --->
+    # <--- *** Metodos de clase 'Habitacion' *** --->
     
     def gestionar_precio(self, nuevo_precio: float):
         #Actualiza el precio de la habitación y muestra un mensaje de confirmación

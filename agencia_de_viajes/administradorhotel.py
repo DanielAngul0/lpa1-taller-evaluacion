@@ -39,6 +39,9 @@ class AdministradorHotel(Usuario):
         tabla.add_row("Correo electrónico", self.correo_electronico)
         tabla.add_row("Dirección", self.direccion)
         return tabla
+    
+    
+    # <--- *** Metodos de clase 'AdministradorHotel' *** --->
         
     # Creara un nuevo administrador de hotel
     def registrarse(self):

@@ -23,6 +23,9 @@ Telefono: {self.telefono}
 Correo electronico: {self.correo_electronico}
 Direccion: {self.direccion}"""
     
+    
+    # <--- *** Metodo abstracto de clase 'Usuario' *** --->
+    
     # Funcion para registrar Usuario dependiendo su rol (Cliente, Administrador del sistema, Administrador del hotel) 
     @abstractmethod
     # Este metodo abstracto creara usuarios con informacion personal de cada uno
