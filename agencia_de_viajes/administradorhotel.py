@@ -1,5 +1,8 @@
 # Importando clase abstracta Usuario
 from agencia_de_viajes.usuario import Usuario # Obtiene los atributos de la clase abstracta Usuario
+# Importando la clase 'AdministradorHotel'
+from agencia_de_viajes.hotel import Hotel # Obtiene los atributos
+# from agencia_de_viajes.hotel import Hotel Obtiene los atributos
 # Importando la libreria 'Rich'
 from rich.console import Console # Encargado de imprimir en la consola en un formato enriquecido   
 from rich.table import Table # Permite crear tablas con bordes y colores
@@ -12,7 +15,11 @@ console = Console()
 # Creando clase AdministradorHotel
 class AdministradorHotel(Usuario):
     # Tomando los atributos de la clase abstracta Usuario
-    def __init__(self, nombre: str, telefono: str, correo_electronico: str, direccion: str):
+    def __init__(self, 
+                nombre: str, 
+                telefono: str, 
+                correo_electronico: str, 
+                direccion: str):
         super().__init__(nombre, telefono, correo_electronico, direccion)
         # Añadiendo atributos propios de la clase AdministradorHotel
         self.hoteles_gestionados = [] # Lista para almacenar los hoteles gestionados
@@ -36,3 +43,19 @@ class AdministradorHotel(Usuario):
     def registrarse(self):
         # Sera representado por su nombre y un mensaje de confirmacion usando 'rich'
         console.print(f"[bold green]Usuario {self.nombre} registrado exitosamente[/bold green]")
+    
+    # Asignara los administradores existentes a un hotel en especifico    
+    def gestionar_hotel(self, hotel: Hotel):
+        # Agrega el hotel a la lista de 'hoteles_gestionados'
+        self.hoteles_gestionados.append(hotel)
+        # Generara un mensaje confirmando la asignacion del 'Administrador de hotel' hacia un 'Hotel' en especifico
+        console.print(f"[bold green]El Administrador [cyan]{self.nombre}[/cyan] ahora gestiona el hotel:[/bold green] [cyan]{hotel.nombre}[/cyan]")
+    
+    # Define el precio que recibira el hotel    
+    def definir_precios(self, hotel: Hotel, precio_nuevo):
+        # Generara un mensaje confirmando el cambio de precio del hotel
+        console.print(f"[bold yellow]El Administrador [cyan]{self.nombre}[/cyan] ha cambiado el precio del hotel {hotel.nombre} a:[/bold yellow] [bold red]{precio_nuevo}[/bold red]")
+    
+    # Simula la administración de reservas para todos los hoteles gestionados    
+    def administrar_reservas(self):
+        console.print(f"[bold magenta]El Administrador [cyan]{self.nombre}[/cyan] está administrando las reservas de los hoteles gestionados.[/bold magenta]")
